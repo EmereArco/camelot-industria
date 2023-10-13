@@ -8,8 +8,7 @@
 // L.map instantiates the webmap. The variable 'map' must match the DOM ID of the div element in the HTML document.
 // Center and zoom define how the map is displayed when called.  
 
-var map = L.map('map').setView([45.1508996, 8.0168470], 14);
-
+var map = L.map('map').setView([45.1592, 8.0186], 14);
 
 // Basemaps are instantiated with L.tileLayer. Attributation is important to show where the basemap comes from.
 // Minzoom and maxzoom are useful to set the minimum and maximum zoom level for the user.  
@@ -51,30 +50,38 @@ var icon = L.icon({
 
 
 // Create a GeoJSON layer and add it to the map
+var industria_archeo = L.geoJSON(industria, {
+    onEachFeature: function (feature, layer) {
+        // Add a popup displaying the properties of each point
+        if (feature.properties) {
+            layer.bindPopup(
+                "<strong>Name:</strong> " + feature.properties.Name 
+            );
+        }
+    }
+})
+industria_archeo.addTo(map);
 
-
-var stop_turin = L.geoJSON(bus_stops, {
+var poi_monteu = L.geoJSON(monteu, {
     pointToLayer: function (feature, latlng) {
-       	return L.marker(latlng, { icon: icon })
+       	return L.marker(latlng)
 		
     },
     onEachFeature: function (feature, layer) {
         // Add a popup displaying the properties of each point
         if (feature.properties) {
             layer.bindPopup(
-                "<strong>Fermata:</strong> " + feature.properties.Name + "<br>" +
-				"<strong>Indirizzo:</strong> " + feature.properties.Address + "<br>" +
-                "<strong>Linea:</strong> " + feature.properties["bus lines"] 
+                "<strong>Name:</strong> " + feature.properties.Name 
             );
         }
     }
 })
-stop_turin.addTo(map);
+poi_monteu.addTo(map);
 
 
 
 var overlayMaps = {
-    "fermate": stop_turin
+    "Punti di interesse": poi_monteu
 };
 
 // Add a control to switch between basemaps

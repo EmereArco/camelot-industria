@@ -1,0 +1,71 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 1,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.014614951000055,
+          45.15078038100006
+        ]
+      },
+      "properties": {
+        "Name": "Chiesa di Monteu da Po"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          8.009598668000024,
+          45.14912783600005
+        ]
+      },
+      "properties": {
+        "Name": "Torri romane"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.991356822000057,
+          45.15692106300003
+        ]
+      },
+      "properties": {
+        "Name": "Castello di Morra"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.980768284000021,
+          45.16017467900008
+        ]
+      },
+      "properties": {
+        "Name": "Romitorio"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          7.982330213000068,
+          45.16075010600008
+        ]
+      },
+      "properties": {
+        "Name": "Rovine castello di Lauriano (?)"
+      }
+    }
+  ]
+}
