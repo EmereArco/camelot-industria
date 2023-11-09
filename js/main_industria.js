@@ -31,7 +31,21 @@ var Watercolor = L.tileLayer( waterColorUrl, {
 	attribution: waterColorAttrib
 });
 
-// Create an object with basemap layer names and their corresponding layers
+var imageUrl = 'data/topo_1800_v2.jpg'
+var latLngBounds = L.latLngBounds([[45.221477, 7.928469], [45.100422, 8.127926]]);
+var imageOverlay = L.imageOverlay(imageUrl, latLngBounds, {
+    opacity: 0.8,
+    interactive: true
+}).addTo(map);
+
+var imageUrl2 = 'data/topo_1800_v3.jpg'
+var latLngBounds2 = L.latLngBounds([[45.198551, 7.9538189], [45.146619, 8.0927177]]);
+var imageOverlay2 = L.imageOverlay(imageUrl2, latLngBounds2, {
+    opacity: 0.8,
+    interactive: true
+}).addTo(map);
+
+
 var basemaps = {
     "OpenStreetMap": osm,
     "WaterColor": Watercolor
@@ -81,7 +95,10 @@ poi_monteu.addTo(map);
 
 
 var overlayMaps = {
-    "Punti di interesse": poi_monteu
+    "Punti di interesse": poi_monteu,
+    "Sito Industria": industria_archeo,
+    "rast": imageOverlay,
+    "rast_clip": imageOverlay2
 };
 
 // Add a control to switch between basemaps
